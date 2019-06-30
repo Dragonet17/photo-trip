@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PhotoTrip</name>
+    </assembly>
+    <members>
+        <member name="M:PhotoTrip.Controllers.EventController.Event">
+            <summary>
+            Przykład użycia routingu
+            </summary>
+            <returns>Testowy opis</returns>
+        </member>
+    </members>
+</doc>
