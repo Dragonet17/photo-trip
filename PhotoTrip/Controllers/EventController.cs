@@ -11,7 +11,7 @@ namespace PhotoTrip.Controllers
         /// <returns>Testowy opis</returns>
         [HttpGet("event")]
         public IActionResult Event() =>
-            Ok("It's the first event");
+            Ok(new {Name = "Karol" });
 
         /// <summary>
         /// Get event by id
