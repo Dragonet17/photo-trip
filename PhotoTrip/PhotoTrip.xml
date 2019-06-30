@@ -10,5 +10,12 @@
             </summary>
             <returns>Testowy opis</returns>
         </member>
+        <member name="M:PhotoTrip.Controllers.EventController.GetEvent(System.Int32)">
+            <summary>
+            Get event by id
+            </summary>
+            <param name="id">event id</param>
+            <returns>Eevent object</returns>
+        </member>
     </members>
 </doc>

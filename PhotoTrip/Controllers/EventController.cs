@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace PhotoTrip.Controllers
 {
@@ -10,6 +11,17 @@ namespace PhotoTrip.Controllers
         /// <returns>Testowy opis</returns>
         [HttpGet("event")]
         public IActionResult Event() =>
+            Ok("It's the first event");
+
+        /// <summary>
+        /// Get event by id
+        /// </summary>
+        /// <param name="id">event id</param>
+        /// <returns>Eevent object</returns>
+        [HttpGet("event/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetEvent(int id) =>
             Ok("It's the first event");
     }
 }
