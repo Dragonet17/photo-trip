@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PhotoTrip.Data;
+using PhotoTrip.Extensions;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.IO;
@@ -72,6 +73,13 @@ namespace PhotoTrip
                 x.AllowAnyHeader();
                 x.AllowCredentials();
             });
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                if (!serviceScope.ServiceProvider.GetService<PhotoTripContext>().AllMigrationsApplied())
+                {
+                    serviceScope.ServiceProvider.GetService<PhotoTripContext>().Database.Migrate();
+                }
+            }
             app.UseMvc();
         }
     }
