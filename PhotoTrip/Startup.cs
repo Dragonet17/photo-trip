@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PhotoTrip.Data;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.IO;
@@ -29,7 +31,7 @@ namespace PhotoTrip
                 //The generated Swagger JSON file will have these properties.
                 c.SwaggerDoc("v1", new Info
                 {
-                    Title = "PhotoTrip Api Documentations",
+                    Title = "PhotoTrip Api Documentation",
                     Version = "v1",
                 });
 
@@ -40,6 +42,8 @@ namespace PhotoTrip
                 //... and tell Swagger to use those XML comments.
                 c.IncludeXmlComments(xmlPath);
             });
+            services.AddDbContext<PhotoTripContext>(options =>
+             options.UseSqlServer(Configuration.GetConnectionString("PhotoTripDatabase")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
