@@ -17,5 +17,17 @@
             <param name="id">event id</param>
             <returns>Eevent object</returns>
         </member>
+        <member name="M:PhotoTrip.Controllers.PhotoController.Get">
+            <summary>
+            Przykład użycia routingu
+            </summary>
+            <returns>Testowy opis</returns>
+        </member>
+        <member name="M:PhotoTrip.Controllers.UserController.Get">
+            <summary>
+            Przykład użycia routingu
+            </summary>
+            <returns>Testowy opis</returns>
+        </member>
     </members>
 </doc>
